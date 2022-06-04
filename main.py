@@ -13,6 +13,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.popup import Popup
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivymd.app import MDApp
 class FirstWindow(Screen):
     pass
 class SecondWindow(Screen):
@@ -45,8 +46,11 @@ class Manager(ScreenManager):
     pass
 kv = Builder.load_file('MyRoot.kv')
 
-class MyRootApp(App):
+class MyRootApp(MDApp):
     def build(self):
+        self.theme_cls.theme_style = "Light"
+        self.theme_cls.primary_palette = "Indigo"
+        self.theme_cls.accent_palette = "Blue"
         self.title = "Guest House Management System"
         return kv
 if __name__ =='__main__':

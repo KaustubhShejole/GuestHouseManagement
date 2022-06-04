@@ -6,7 +6,7 @@ Manager:
     ThirdWindow:
 <FirstWindow>:
     name:"one"
-
+    elevation: 10
     GridLayout:
         cols:1
         rows:2
@@ -25,6 +25,8 @@ Manager:
                 font_size:40
                 multiline:False
                 id:user_name
+                hint_text: "Username"
+                foreground_color: 1, 0, 1, 1
 
             Label:
                 text:"Password"
@@ -35,19 +37,21 @@ Manager:
                 font_size:40
                 multiline:False
                 id:password
+                hint_text: "Password"
+                foreground_color: 1, 0, 1, 1
         GridLayout:
             cols:2
             padding:100,100
             Button:
                 text:"Login"
                 color:"red"
-                background_color:"white"
+                background_color:(230,230,0,1)
                 id:login_button
                 on_press:root.manager.current = "two"
             Button:
                 text:"SignUp"
                 color:"red"
-                background_color:"white"
+                background_color:(230,0,230,1)
                 id:signup_button
                 on_press:root.manager.current = "three"
 <SecondWindow>:
