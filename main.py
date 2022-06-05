@@ -14,34 +14,14 @@ from kivy.uix.popup import Popup
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivymd.app import MDApp
+from kivy.uix.image import Image, AsyncImage
+from kivy.graphics import Color, Rectangle
 class FirstWindow(Screen):
     pass
 class SecondWindow(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.l1 = Button(
-            text="SigInWindow",
-            background_color="pink"
-        )
-        self.l1.bind(on_press = self.button_action)
-        self.title = "SignInWindow"
-        self.add_widget(self.l1)
-
-    def button_action(self,instance):
-        pass
+    pass
 class ThirdWindow(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.l1 = Button(
-            text="SigUpWindow",
-            background_color="pink"
-        )
-        self.l1.bind(on_press = self.button_action)
-        self.title = "SignUpWindow"
-        self.add_widget(self.l1)
-
-    def button_action(self,instance):
-        pass
+    pass
 class Manager(ScreenManager):
     pass
 kv = Builder.load_file('MyRoot.kv')

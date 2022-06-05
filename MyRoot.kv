@@ -7,6 +7,11 @@ Manager:
 <FirstWindow>:
     name:"one"
     elevation: 10
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source:'room1.jpg'
     GridLayout:
         cols:1
         rows:2
@@ -57,5 +62,87 @@ Manager:
                 on_press:root.manager.current = "three"
 <SecondWindow>:
     name:"two"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source:'room2.png'
 <ThirdWindow>:
     name:"three"
+    elevation: 10
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source:'room3.png' 
+    GridLayout:
+        cols:2
+        rows:6
+        padding:50,50
+        spacing:25,35
+        Label:
+            text:"Your Name"
+            color:"green"
+            font_size:25
+        TextInput:
+            text: ""
+            font_size:40
+            multiline:False
+            id:user_name
+            hint_text: "name"
+            foreground_color: 1, 0, 1, 1
+            required:True
+
+        Label:
+            text:"Your Phone Number"
+            color:"yellow"
+            font_size:25
+        TextInput:
+            text: ""
+            font_size:40
+            multiline:False
+            id:password
+            hint_text: "1234567890"
+            foreground_color: 1, 0, 1, 1
+        Label:
+            text:"Your Address"
+            color:"green"
+            font_size:25
+        TextInput:
+            text: ""
+            font_size:40
+            multiline:False
+            id:user_name
+            hint_text: "Address"
+            foreground_color: 1, 0, 1, 1
+            required:True
+
+        Label:
+            text:"Your Aadhar Number"
+            color:"yellow"
+            font_size:25
+        TextInput:
+            text: ""
+            font_size:40
+            multiline:False
+            id:password
+            hint_text: "123456789012"
+            foreground_color: 1, 0, 1, 1
+        Button:
+            text:"Back"
+            color:"red"
+            background_color:(230,230,0,1)
+            id:login_button
+            on_press:root.manager.current = "one"
+        Button:
+            text:"Enter"
+            color:"red"
+            background_color:(230,0,230,1)
+            id:signup_button
+            on_press:root.manager.current = "three"
+        Button:
+            text:"ClearForm"
+            color:"red"
+            background_color:(230,0,230,1)
+            id:signup_button
+            on_press:root.manager.current = "three"
