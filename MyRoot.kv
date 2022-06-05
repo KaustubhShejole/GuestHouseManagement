@@ -142,10 +142,13 @@ Manager:
                 if str(pname.text).strip()!='' and str(number.text).strip()!='' and str(address.text).strip()!='' and str(aadhar.text).strip()!='':\
                 root.manager.current = "two"
                 else: pass
-            on_press:root.manager.current = "three"
         Button:
             text:"ClearForm"
             color:"red"
             background_color:(230,0,230,1)
             id:signup_button
-            on_press:root.manager.current = "three"
+            on_press: 
+                pname.text=''
+                number.text=''
+                address.text=''
+                aadhar.text=''
