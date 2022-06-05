@@ -74,7 +74,7 @@ Manager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source:'room3.png' 
+            source:'room3.png'
     GridLayout:
         cols:2
         rows:6
@@ -88,11 +88,10 @@ Manager:
             text: ""
             font_size:40
             multiline:False
-            id:user_name
+            id:pname
             hint_text: "name"
             foreground_color: 1, 0, 1, 1
             required:True
-
         Label:
             text:"Your Phone Number"
             color:"yellow"
@@ -101,7 +100,7 @@ Manager:
             text: ""
             font_size:40
             multiline:False
-            id:password
+            id:number
             hint_text: "1234567890"
             foreground_color: 1, 0, 1, 1
         Label:
@@ -112,7 +111,7 @@ Manager:
             text: ""
             font_size:40
             multiline:False
-            id:user_name
+            id:address
             hint_text: "Address"
             foreground_color: 1, 0, 1, 1
             required:True
@@ -125,7 +124,7 @@ Manager:
             text: ""
             font_size:40
             multiline:False
-            id:password
+            id:aadhar
             hint_text: "123456789012"
             foreground_color: 1, 0, 1, 1
         Button:
@@ -139,6 +138,10 @@ Manager:
             color:"red"
             background_color:(230,0,230,1)
             id:signup_button
+            on_press:
+                if str(pname.text).strip()!='' and str(number.text).strip()!='' and str(address.text).strip()!='' and str(aadhar.text).strip()!='':\
+                root.manager.current = "two"
+                else: pass
             on_press:root.manager.current = "three"
         Button:
             text:"ClearForm"

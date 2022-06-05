@@ -2,6 +2,7 @@ from cProfile import label
 from cgitb import text
 from faulthandler import disable
 from itertools import tee
+from unicodedata import name
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager,Screen
 from kivy.uix.gridlayout import GridLayout
@@ -21,7 +22,16 @@ class FirstWindow(Screen):
 class SecondWindow(Screen):
     pass
 class ThirdWindow(Screen):
-    pass
+    '''def validate(self):
+        pname=ObjectProperty('')
+        number=ObjectProperty(None)
+        aadhar=ObjectProperty(None)
+        address=ObjectProperty(None)
+        if(str(pname).strip()!='' and str(pname).strip()!='<ObjectProperty name=>'):
+            print(str(pname).strip())
+            return True
+        else:
+            return False'''
 class Manager(ScreenManager):
     pass
 kv = Builder.load_file('MyRoot.kv')
