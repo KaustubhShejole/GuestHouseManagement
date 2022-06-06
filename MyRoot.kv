@@ -67,6 +67,43 @@ Manager:
             pos: self.pos
             size: self.size
             source:'room2.png'
+    FloatLayout:
+        Label:
+            size_hint: 0.65,0.5
+            pos_hint: {'center_x': 0.35,'center_y': 0.25}
+            text:'Please Click on check Availability Button'
+            color:"red"
+            font_size:45
+            id:room_info
+        TextInput:
+            size_hint: 0.65,0.5
+            pos_hint: {'center_x': 0.5,'center_y': 0.75}
+            text:''
+            hint_text:'Please Click on check Availabilty Button'
+            font_size:40
+            multiline:False
+            id:room_input
+            foreground_color: 1, 0, 1, 1
+            required:True
+        Button:
+            text:"Enter"
+            color:"red"
+            size_hint: 0.25,0.25
+            pos_hint: {'center_x': 0.875,'center_y': 0.125}
+            background_color:(230,230,0,1)
+            id:room_button
+            on_press: root.check_floors(int(room_input.text))
+        Button:
+            text:"Check Availability"
+            color:"green"
+            size_hint: 0.50,0.10
+            pos_hint: {'center_x': 0.45,'center_y': 0.05}
+            background_color:(230,0,230,1)
+            id:check_button
+            on_press:
+                room_info.text=root.info_text()
+                room_input.hint_text='2'
+
 <ThirdWindow>:
     name:"three"
     elevation: 10

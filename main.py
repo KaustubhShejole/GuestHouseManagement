@@ -17,21 +17,55 @@ from kivy.core.window import Window
 from kivymd.app import MDApp
 from kivy.uix.image import Image, AsyncImage
 from kivy.graphics import Color, Rectangle
+num_floors=[0]
+def init_rooms():
+    with open('rooms.txt','w') as tf:
+        for i in range(5):
+            print('1 22',file=tf)
+init_rooms()
+l=[]
+def get_rooms():
+    with open('rooms.txt','r') as tf:
+        for each_line in tf:
+            [i,j]=(each_line.split(' ',1))
+            i=int(i)
+            j=int(j)
+            l.append([i,j])
+get_rooms()
+free_floor=[]
+def check_rooms():
+    if(l!= [[],[],[],[],[]] and l!=[]):
+        free_floor=[]
+        i=1
+        for each_list in l:
+            if(each_list != []):
+                free_floor.append(i)
+                print(i)
+            i=i+1
+        num_floors[0] = i-1
+        return str(free_floor).strip('[]')
+    else:
+        return ''
+
 class FirstWindow(Screen):
     pass
 class SecondWindow(Screen):
-    pass
-class ThirdWindow(Screen):
-    '''def validate(self):
-        pname=ObjectProperty('')
-        number=ObjectProperty(None)
-        aadhar=ObjectProperty(None)
-        address=ObjectProperty(None)
-        if(str(pname).strip()!='' and str(pname).strip()!='<ObjectProperty name=>'):
-            print(str(pname).strip())
-            return True
+    def info_text(self):
+        s = check_rooms()
+        if(s != ''):
+            return s+' Floors are available'
         else:
-            return False'''
+            return 'Floors are not available'
+    def check_floors(self,n):
+        if(n>=1 and n<=num_floors[0]):
+            for each_item in free_floor:
+                if n == each_item:
+                    print('ki')
+                    return 'green'
+            return 'red'
+        return 'red'
+class ThirdWindow(Screen):
+    pass
 class Manager(ScreenManager):
     pass
 kv = Builder.load_file('MyRoot.kv')
